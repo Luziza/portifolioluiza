@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Projetos extends StatelessWidget {
   const Projetos({
@@ -9,18 +7,18 @@ class Projetos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(80),
+    return const Padding(
+      padding: EdgeInsets.all(80),
       child: Column(
         children: [
-          const Text(
+          Text(
             'PROJETOS',
             style: TextStyle(
                 color: Color.fromARGB(255, 19, 105, 26),
                 fontWeight: FontWeight.bold,
                 fontSize: 40),
           ),
-          const SizedBox(
+          SizedBox(
             height: 100,
           ),
           Row(
@@ -29,20 +27,20 @@ class Projetos extends StatelessWidget {
                 flex: 1,
                 child: Card(
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: EdgeInsets.all(20.0),
                     child: Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             'Portal da Soliedariedade',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20),
                           ),
-                          const Text(
+                          Text(
                               'Projeto da minha bolsa de extensão, que foi a criação do web site "Portal da Solidariedade", uma ferramenta que visa ajudar a comunidade de Araquari a oferecer serviços na época de pandemia, por conta da falta de emprego consequente da pandemia, trabalhadores poderiam oferecer serviços independentes diretamente no web site.'),
-                          const Text('Foi utilizado Django e Vue.js'),
-                          const Text(
+                          Text('Foi utilizado Django e Vue.js'),
+                          Text(
                               'https://revistas.ufpr.br/extensao/article/view/86235')
                         ],
                       ),
@@ -50,10 +48,10 @@ class Projetos extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 width: 20,
               ),
-              const Expanded(
+              Expanded(
                 flex: 1,
                 child: Card(
                   child: Padding(

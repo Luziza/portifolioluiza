@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
               ),
               const Conhecimento(),
               const Experiencia(),
-              const Projetos(),
+              // const Projetos(),
               const Formacao(),
               const Certificados(),
               const Contato(),
