@@ -190,7 +190,7 @@ class _MyAppState extends State<MyApp> {
                                         onPressed: () =>
                                             _scrollTo(_certificadosKey),
                                         child: const Text(
-                                          'Formação',
+                                          'Certificado',
                                           style: TextStyle(
                                             color: Colors.white, // Cor do texto
                                             fontSize: 18, // Tamanho da fonte

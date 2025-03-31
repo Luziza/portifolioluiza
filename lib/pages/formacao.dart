@@ -76,7 +76,7 @@ class Formacao extends StatelessWidget {
                                 'Graduação em Bacharelado em Sistemas de informação', style: TextStyle(fontWeight: FontWeight.bold),),
                           ],
                         ),
-                        const Text('Período: 2012 - Atualmente'),
+                        const Text('Período: 2022 - Atualmente'),
                         const SizedBox(
                           height: 20,
                         ),

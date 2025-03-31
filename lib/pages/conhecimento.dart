@@ -15,7 +15,7 @@ class Conhecimento extends StatelessWidget {
           Text(
             'CONHECIMENTOS',
             style: TextStyle(
-                color: Color.fromARGB(255, 19, 105, 26),
+                color:  Color.fromARGB(255, 42, 151, 51),
                 fontWeight: FontWeight.bold,
                 fontSize: 40),
           ),
