@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/widgets/container.dart';
 
 class Conhecimento extends StatelessWidget {
   const Conhecimento({
@@ -7,11 +8,11 @@ class Conhecimento extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(80.0),
+    return const Padding(
+      padding: EdgeInsets.all(80.0),
       child: Column(
         children: [
-          const Text(
+          Text(
             'CONHECIMENTOS',
             style: TextStyle(
                 color: Color.fromARGB(255, 19, 105, 26),
@@ -22,75 +23,35 @@ class Conhecimento extends StatelessWidget {
           //   height: 100,
           // ),
           Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: Row(
+            padding: EdgeInsets.all(50.0),
+            child: Column(
               children: [
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset('assets/imagens/desenvolvimento.png'),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text(
-                            'Desenvolvimento de Software',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Text(
-                          'Experiencia de 2 anos em Dart. Conhecimento em Python, Django, Git e GitHub, Javascript e métodos ágeis.'),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Caixa(
+                        nome: 'Flutter', imagem: 'assets/imagens/flutter.png'),
+                    Caixa(nome: 'Dart', imagem: 'assets/imagens/dart.png'),
+                    Caixa(nome: 'Python', imagem: 'assets/imagens/python.png'),
+                    Caixa(nome: 'Django', imagem: 'assets/imagens/django.png'),
+                    Caixa(nome: 'HTML', imagem: 'assets/imagens/html.png'),
+                    Caixa(nome: 'GitHub', imagem: 'assets/imagens/github.png'),
+                  ],
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset('assets/imagens/frontend.png'),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text('Front-End e Mobile'),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Text(
-                          'Experiencia de 2 anos com desenvolvimento em Flutter. Conhecimento ta,bém em HTML, CSS e JS')
-                    ],
-                  ),
+                SizedBox(
+                  height: 50,
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset('assets/imagens/bandodedados.png'),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text('Banco de Dados'),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Text('Conhecimento em SQL e banco de dados Oracle'),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Caixa(nome: 'Javascript', imagem: 'assets/imagens/js.png'),
+                    Caixa(nome: 'CSS', imagem: 'assets/imagens/css.png'),
+                    Caixa(nome: 'SQL', imagem: 'assets/imagens/sql.png'),
+                    Caixa(
+                        nome: 'Inglês intermediário',
+                        imagem: 'assets/imagens/ingles.png'),
+                    Caixa(nome: 'Git', imagem: 'assets/imagens/git.png'),
+                  ],
                 )
               ],
             ),
