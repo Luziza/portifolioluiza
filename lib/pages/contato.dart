@@ -76,10 +76,10 @@ class Contato extends StatelessWidget {
                       children: [
                         ClipRRect(
                           borderRadius:
-                              BorderRadius.circular(50), // Arredonda a imagem
+                              BorderRadius.circular(400), // Arredonda a imagem
                           child: Image.asset(
                             'assets/imagens/luizaaa.jpg',
-                            height: 200,
+                            height: 300,
                             fit: BoxFit
                                 .cover, // Ajusta a imagem ao espaço disponível
                           ),

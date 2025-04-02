@@ -19,7 +19,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // 1. Mova as GlobalKeys para dentro do State
   final GlobalKey _homeKey = GlobalKey();
   final GlobalKey _conhecimentosKey = GlobalKey();
   final GlobalKey _experienciasKey = GlobalKey();
@@ -28,7 +27,36 @@ class _MyAppState extends State<MyApp> {
   final GlobalKey _certificadosKey = GlobalKey();
   final GlobalKey _contatosKey = GlobalKey();
 
-  // 2. Função de scroll com tratamento de null
+  // 1. Adicione um ScrollController
+  final ScrollController _scrollController = ScrollController();
+
+  // 2. ValueNotifier para controlar a visibilidade do botão
+  final ValueNotifier<bool> _showBackToTopButton = ValueNotifier(false);
+
+  @override
+  void initState() {
+    super.initState();
+    // 3. Configure o listener do scroll
+    _scrollController.addListener(_checkScrollPosition);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _showBackToTopButton.dispose();
+    super.dispose();
+  }
+
+  // 4. Função para verificar se o usuário está no topo
+  void _checkScrollPosition() {
+    if (_scrollController.position.pixels > 200) {
+      // Ajuste o valor conforme necessário
+      _showBackToTopButton.value = true;
+    } else {
+      _showBackToTopButton.value = false;
+    }
+  }
+
   void _scrollTo(GlobalKey key) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final context = key.currentContext;
@@ -37,29 +65,16 @@ class _MyAppState extends State<MyApp> {
           context,
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
-          alignment: 0.1, // Rola até 10% da parte superior
+          alignment: 0.1,
         );
       }
     });
   }
 
-// Função para criar botões do menu
-  // Widget _menuButton(String text, GlobalKey key) {
-  //   return TextButton(
-  //     onPressed: () => _scrollTo(key),
-  //     child: Text(
-  //       text,
-  //       style: const TextStyle(color: Colors.white),
-  //     ),
-  //   );
-  // }
-
-// Função para criar seções com altura mínima para serem renderizadas corretamente
   Widget _section(GlobalKey key, Widget child) {
     return Container(
       key: key,
-      constraints: const BoxConstraints(
-          minHeight: 500), // Garante que a seção seja visível
+      constraints: const BoxConstraints(minHeight: 500),
       child: child,
     );
   }
@@ -69,15 +84,17 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 43, 41, 41),
-        body: DefaultTextStyle(
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontFamily: 'BigShoulders',
-          ),
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return SingleChildScrollView(
+        body: Stack(
+          // Adicione um Stack como widget raiz
+          children: [
+            DefaultTextStyle(
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontFamily: 'BigShoulders',
+              ),
+              child: SingleChildScrollView(
+                controller: _scrollController,
                 child: Column(
                   children: [
                     Container(
@@ -109,116 +126,122 @@ class _MyAppState extends State<MyApp> {
                                 Expanded(
                                   flex: 1,
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      TextButton(
-                                        onPressed: () => _scrollTo(_homeKey),
-                                        child: const Text(
-                                          'Home',
-                                          style: TextStyle(
-                                            color: Colors.white, // Cor do texto
-                                            fontSize: 18, // Tamanho da fonte
-                                            fontWeight:
-                                                FontWeight.bold, // Negrito
-                                            fontFamily:
-                                                'BigShoulders', // Fonte personalizada
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        TextButton(
+                                          onPressed: () => _scrollTo(_homeKey),
+                                          child: const Text(
+                                            'Home',
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white, // Cor do texto
+                                              fontSize: 18, // Tamanho da fonte
+                                              fontWeight:
+                                                  FontWeight.bold, // Negrito
+                                              fontFamily:
+                                                  'BigShoulders', // Fonte personalizada
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () =>
-                                            _scrollTo(_conhecimentosKey),
-                                        child: const Text(
-                                          'Conhecimentos',
-                                          style: TextStyle(
-                                            color: Colors.white, // Cor do texto
-                                            fontSize: 18, // Tamanho da fonte
-                                            fontWeight:
-                                                FontWeight.bold, // Negrito
-                                            fontFamily:
-                                                'BigShoulders', // Fonte personalizada
+                                        TextButton(
+                                          onPressed: () =>
+                                              _scrollTo(_conhecimentosKey),
+                                          child: const Text(
+                                            'Conhecimentos',
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white, // Cor do texto
+                                              fontSize: 18, // Tamanho da fonte
+                                              fontWeight:
+                                                  FontWeight.bold, // Negrito
+                                              fontFamily:
+                                                  'BigShoulders', // Fonte personalizada
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () =>
-                                            _scrollTo(_experienciasKey),
-                                        child: const Text(
-                                          'Experiências',
-                                          style: TextStyle(
-                                            color: Colors.white, // Cor do texto
-                                            fontSize: 18, // Tamanho da fonte
-                                            fontWeight:
-                                                FontWeight.bold, // Negrito
-                                            fontFamily:
-                                                'BigShoulders', // Fonte personalizada
+                                        TextButton(
+                                          onPressed: () =>
+                                              _scrollTo(_experienciasKey),
+                                          child: const Text(
+                                            'Experiências',
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white, // Cor do texto
+                                              fontSize: 18, // Tamanho da fonte
+                                              fontWeight:
+                                                  FontWeight.bold, // Negrito
+                                              fontFamily:
+                                                  'BigShoulders', // Fonte personalizada
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () =>
-                                            _scrollTo(_projetosKey),
-                                        child: const Text(
-                                          'Projetos',
-                                          style: TextStyle(
-                                            color: Colors.white, // Cor do texto
-                                            fontSize: 18, // Tamanho da fonte
-                                            fontWeight:
-                                                FontWeight.bold, // Negrito
-                                            fontFamily:
-                                                'BigShoulders', // Fonte personalizada
+                                        TextButton(
+                                          onPressed: () =>
+                                              _scrollTo(_projetosKey),
+                                          child: const Text(
+                                            'Projetos',
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white, // Cor do texto
+                                              fontSize: 18, // Tamanho da fonte
+                                              fontWeight:
+                                                  FontWeight.bold, // Negrito
+                                              fontFamily:
+                                                  'BigShoulders', // Fonte personalizada
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () =>
-                                            _scrollTo(_formacaoKey),
-                                        child: const Text(
-                                          'Formação',
-                                          style: TextStyle(
-                                            color: Colors.white, // Cor do texto
-                                            fontSize: 18, // Tamanho da fonte
-                                            fontWeight:
-                                                FontWeight.bold, // Negrito
-                                            fontFamily:
-                                                'BigShoulders', // Fonte personalizada
+                                        TextButton(
+                                          onPressed: () =>
+                                              _scrollTo(_formacaoKey),
+                                          child: const Text(
+                                            'Formação',
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white, // Cor do texto
+                                              fontSize: 18, // Tamanho da fonte
+                                              fontWeight:
+                                                  FontWeight.bold, // Negrito
+                                              fontFamily:
+                                                  'BigShoulders', // Fonte personalizada
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () =>
-                                            _scrollTo(_certificadosKey),
-                                        child: const Text(
-                                          'Certificado',
-                                          style: TextStyle(
-                                            color: Colors.white, // Cor do texto
-                                            fontSize: 18, // Tamanho da fonte
-                                            fontWeight:
-                                                FontWeight.bold, // Negrito
-                                            fontFamily:
-                                                'BigShoulders', // Fonte personalizada
+                                        TextButton(
+                                          onPressed: () =>
+                                              _scrollTo(_certificadosKey),
+                                          child: const Text(
+                                            'Formação',
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white, // Cor do texto
+                                              fontSize: 18, // Tamanho da fonte
+                                              fontWeight:
+                                                  FontWeight.bold, // Negrito
+                                              fontFamily:
+                                                  'BigShoulders', // Fonte personalizada
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () =>
-                                            _scrollTo(_contatosKey),
-                                        child: const Text(
-                                          'Contatos',
-                                          style: TextStyle(
-                                            color: Colors.white, // Cor do texto
-                                            fontSize: 18, // Tamanho da fonte
-                                            fontWeight:
-                                                FontWeight.bold, // Negrito
-                                            fontFamily:
-                                                'BigShoulders', // Fonte personalizada
+                                        TextButton(
+                                          onPressed: () =>
+                                              _scrollTo(_contatosKey),
+                                          child: const Text(
+                                            'Contatos',
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white, // Cor do texto
+                                              fontSize: 18, // Tamanho da fonte
+                                              fontWeight:
+                                                  FontWeight.bold, // Negrito
+                                              fontFamily:
+                                                  'BigShoulders', // Fonte personalizada
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                      ]),
+                                )
                               ],
                             ),
                           ),
@@ -234,9 +257,29 @@ class _MyAppState extends State<MyApp> {
                     _section(_contatosKey, const Contato()),
                   ],
                 ),
-              );
-            },
-          ),
+              ),
+            ),
+            // Botão fixo no canto inferior direito
+            Positioned(
+              bottom: 30, // Distância do fundo
+              right: 30, // Distância da direita
+              child: ValueListenableBuilder<bool>(
+                valueListenable: _showBackToTopButton,
+                builder: (context, showButton, child) {
+                  return AnimatedOpacity(
+                    opacity: showButton ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 300),
+                    child: FloatingActionButton(
+                      backgroundColor: const Color.fromARGB(255, 42, 151, 51),
+                      onPressed: () => _scrollTo(_homeKey),
+                      child:
+                          const Icon(Icons.arrow_upward, color: Colors.white),
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
         ),
       ),
     );
