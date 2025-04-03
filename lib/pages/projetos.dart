@@ -1,40 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portifolio/widgets/link.dart';
 
 class Projetos extends StatelessWidget {
   const Projetos({
     super.key,
   });
 
-  Future<void> _launchURL() async {
-    final Uri url =
-        Uri.parse('https://revistas.ufpr.br/extensao/article/view/86235');
-    if (!await launchUrl(url)) {
-      throw 'Could not launch $url';
-    }
-  }
-
-  Future<void> _launchURL2() async {
-    final Uri url = Uri.parse('https://lojapaidkoser.web.app/');
-    if (!await launchUrl(url)) {
-      throw 'Could not launch $url';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(80),
+    return const Padding(
+      padding: EdgeInsets.all(80),
       child: Column(
         children: [
-          const Text(
+          Text(
             'PROJETOS',
             style: TextStyle(
-                color:  Color.fromARGB(255, 42, 151, 51),
+                color: Color.fromARGB(255, 42, 151, 51),
                 fontWeight: FontWeight.bold,
                 fontSize: 40),
           ),
-          const SizedBox(
+          SizedBox(
             height: 100,
           ),
           Row(
@@ -43,80 +28,59 @@ class Projetos extends StatelessWidget {
                 flex: 1,
                 child: Card(
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: EdgeInsets.all(20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Portal da Soliedariedade',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
-                        const Text(
+                        Text(
                             'Projeto da minha bolsa de extensão, que foi a criação do web site "Portal da Solidariedade", uma ferramenta que visa ajudar a comunidade de Araquari a oferecer serviços na época de pandemia, por conta da falta de emprego consequente da pandemia, trabalhadores poderiam oferecer serviços independentes diretamente no web site.'),
-                        const Text('Foi utilizado Django e Vue.js'),
-                        MouseRegion(
-                          cursor: SystemMouseCursors.click, // Mão do mouse
-                          child: GestureDetector(
-                            onTap: _launchURL,
-                            child: const Text(
+                        Text('Foi utilizado Django e Vue.js'),
+                        Link(
+                          link:
+                              'https://revistas.ufpr.br/extensao/article/view/86235',
+                          nome:
                               "Construindo o “Portal da solidariedade”: Dilemas e desafios da extensão durante a pandemia de Covid-19",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
-                        ),
+                        )
                       ],
                     ),
                   ),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 width: 20,
               ),
               Expanded(
                 flex: 1,
                 child: Card(
                   child: Padding(
-                    padding: const EdgeInsets.all(30.0),
+                    padding: EdgeInsets.all(30.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Dkoser Aviamentos',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
-                        const Text(
+                        Text(
                             'Web Site criado para facilitar os pedido dos clientes na loja de meu pai, onde é disponibilizado a ele . Os itens são inclusos no carrinho de compra e ao finalizar a compra, os itens são enviado pelo Whatsapp para que meu pai possa realizar o pedido do cliente. Está em andamento.'),
-                        const Text(
+                        Text(
                             'Foi utilizado Flutter como linguagem principal e o firabase como banco de dados e locação na web'),
-                        MouseRegion(
-                          cursor: SystemMouseCursors.click, // Mão do mouse
-                          child: GestureDetector(
-                            onTap: _launchURL2,
-                            child: const Text(
-                              "https://lojapaidkoser.web.app/",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
-                        ),
+                        Link(link: "https://lojapaidkoser.web.app/", nome: "D'koser Aviamentos",)
                       ],
                     ),
                   ),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 width: 20,
               ),
-              const Expanded(
+              Expanded(
                 flex: 1,
                 child: Card(
                   child: Padding(

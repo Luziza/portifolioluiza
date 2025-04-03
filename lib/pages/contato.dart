@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/widgets/link.dart';
 
 class Contato extends StatelessWidget {
   const Contato({super.key});
@@ -37,7 +38,9 @@ class Contato extends StatelessWidget {
                         Row(
                           children: [
                             Image.asset('assets/imagens/email.png'),
-                            const SizedBox(width: 10,),
+                            const SizedBox(
+                              width: 10,
+                            ),
                             const Text(
                               'ribeiroluiza.jlle@gmail.com',
                               style: TextStyle(fontSize: 25),
@@ -46,21 +49,26 @@ class Contato extends StatelessWidget {
                         ),
                         Row(
                           children: [
+                            const Link(
+                              link: "https://github.com/Luziza",
+                              nome: "GitHub",
+                            ),
                             Image.asset('assets/imagens/github.png'),
-                            const SizedBox(width: 10,),
-                            const Text(
-                              'GitHub',
-                              style: TextStyle(fontSize: 25),
+                            const SizedBox(
+                              width: 10,
                             ),
                           ],
                         ),
                         Row(
                           children: [
+                            const Link(
+                              link:
+                                  "https://www.linkedin.com/in/luiza-ribeiro-9ab428236/",
+                              nome: "Linkedin",
+                            ),
                             Image.asset('assets/imagens/linkedin.png'),
-                            const SizedBox(width: 10,),
-                            const Text(
-                              'Linkedin',
-                              style: TextStyle(fontSize: 25),
+                            const SizedBox(
+                              width: 10,
                             ),
                           ],
                         )
