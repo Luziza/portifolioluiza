@@ -45,6 +45,7 @@ class Projetos extends StatelessWidget {
                               'https://revistas.ufpr.br/extensao/article/view/86235',
                           nome:
                               "Construindo o “Portal da solidariedade”: Dilemas e desafios da extensão durante a pandemia de Covid-19",
+                          cor: Colors.blue,
                         )
                       ],
                     ),
@@ -71,7 +72,11 @@ class Projetos extends StatelessWidget {
                             'Web Site criado para facilitar os pedido dos clientes na loja de meu pai, onde é disponibilizado a ele . Os itens são inclusos no carrinho de compra e ao finalizar a compra, os itens são enviado pelo Whatsapp para que meu pai possa realizar o pedido do cliente. Está em andamento.'),
                         Text(
                             'Foi utilizado Flutter como linguagem principal e o firabase como banco de dados e locação na web'),
-                        Link(link: "https://lojapaidkoser.web.app/", nome: "D'koser Aviamentos",)
+                        Link(
+                          link: "https://lojapaidkoser.web.app/",
+                          nome: "D'koser Aviamentos",
+                          cor: Colors.blue,
+                        )
                       ],
                     ),
                   ),

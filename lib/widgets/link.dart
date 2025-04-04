@@ -4,8 +4,10 @@ import 'package:url_launcher/url_launcher.dart';
 class Link extends StatefulWidget {
   final String link;
   final String nome;
+  final Color cor;
 
-  const Link({super.key, required this.link, required this.nome});
+  const Link(
+      {super.key, required this.link, required this.nome, required this.cor});
 
   @override
   State<Link> createState() => _LinkState();
@@ -27,10 +29,9 @@ class _LinkState extends State<Link> {
         onTap: _launchURL, // Agora o método está acessível
         child: Text(
           widget.nome,
-          style: const TextStyle(
-            color: Colors.blue,
+          style: TextStyle(
+            color: widget.cor,
             fontWeight: FontWeight.bold,
-            decoration: TextDecoration.underline,
           ),
         ),
       ),

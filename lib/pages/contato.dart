@@ -43,32 +43,34 @@ class Contato extends StatelessWidget {
                             ),
                             const Text(
                               'ribeiroluiza.jlle@gmail.com',
-                              style: TextStyle(fontSize: 25),
+                              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
                         Row(
                           children: [
-                            const Link(
-                              link: "https://github.com/Luziza",
-                              nome: "GitHub",
-                            ),
                             Image.asset('assets/imagens/github.png'),
                             const SizedBox(
                               width: 10,
                             ),
+                            const Link(
+                              link: "https://github.com/Luziza",
+                              nome: "GitHub",
+                              cor: Colors.white,
+                            ),
                           ],
                         ),
                         Row(
                           children: [
+                            Image.asset('assets/imagens/linkedin.png'),
+                            const SizedBox(
+                              width: 10,
+                            ),
                             const Link(
                               link:
                                   "https://www.linkedin.com/in/luiza-ribeiro-9ab428236/",
                               nome: "Linkedin",
-                            ),
-                            Image.asset('assets/imagens/linkedin.png'),
-                            const SizedBox(
-                              width: 10,
+                              cor: Colors.white,
                             ),
                           ],
                         )
