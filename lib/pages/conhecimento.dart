@@ -27,79 +27,82 @@ class Conhecimento extends StatelessWidget {
               {
                 Breakpoints.xs: LayoutBuilder(
                   builder: (context, constraints) {
-                    return const Column(
-                      children: [
-                        Column(
-                          children: [
-                            Caixa(
-                                nome: 'Flutter',
-                                imagem: 'assets/imagens/flutter.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'Dart',
-                                imagem: 'assets/imagens/dart.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'Python',
-                                imagem: 'assets/imagens/python.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'Django',
-                                imagem: 'assets/imagens/django.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'HTML',
-                                imagem: 'assets/imagens/html.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'GitHub',
-                                imagem: 'assets/imagens/github.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'Javascript',
-                                imagem: 'assets/imagens/js.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'CSS',
-                                imagem: 'assets/imagens/css.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'SQL',
-                                imagem: 'assets/imagens/sql.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'Inglês intermediário',
-                                imagem: 'assets/imagens/ingles.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Caixa(
-                                nome: 'Git',
-                                imagem: 'assets/imagens/git.png'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                          ],
-                        )
-                      ],
+                    return Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: const Column(
+                        children: [
+                          Column(
+                            children: [
+                              Caixa(
+                                  nome: 'Flutter',
+                                  imagem: 'assets/imagens/flutter.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'Dart',
+                                  imagem: 'assets/imagens/dart.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'Python',
+                                  imagem: 'assets/imagens/python.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'Django',
+                                  imagem: 'assets/imagens/django.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'HTML',
+                                  imagem: 'assets/imagens/html.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'GitHub',
+                                  imagem: 'assets/imagens/github.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'Javascript',
+                                  imagem: 'assets/imagens/js.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'CSS',
+                                  imagem: 'assets/imagens/css.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'SQL',
+                                  imagem: 'assets/imagens/sql.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'Inglês intermediário',
+                                  imagem: 'assets/imagens/ingles.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Caixa(
+                                  nome: 'Git',
+                                  imagem: 'assets/imagens/git.png'),
+                              SizedBox(
+                                height: 5,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     );
                   },
                 ),
