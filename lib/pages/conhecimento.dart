@@ -27,9 +27,9 @@ class Conhecimento extends StatelessWidget {
               {
                 Breakpoints.xs: LayoutBuilder(
                   builder: (context, constraints) {
-                    return Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: const Column(
+                    return const Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Column(
                         children: [
                           Column(
                             children: [

@@ -19,9 +19,9 @@ class _ExperienciaState extends State<Experiencia> {
         child: context.responsive.value({
       Breakpoints.xs: LayoutBuilder(
         builder: (context, constraints) {
-          return Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: const Column(
+          return const Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
               children: [
                 Text(
                   'EXPERIENCIA',
