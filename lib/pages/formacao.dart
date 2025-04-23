@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_styles/breakpoints/breakpoints.dart';
+import 'package:responsive_styles/responsive/responsive.dart';
 
 class Formacao extends StatelessWidget {
   const Formacao({
@@ -26,17 +28,72 @@ class Formacao extends StatelessWidget {
                   fontSize: 40),
             ),
             const SizedBox(
-              height: 90,
+              height: 60,
             ),
             Padding(
               padding: const EdgeInsets.all(30.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        Row(
+              child: Container(
+                child: context.responsive.value(
+                  {
+                    Breakpoints.lg: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                children: [
+                                  Image.asset('assets/imagens/info.png'),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Text(
+                                    'Ensino médio integrado ao curso técnico de informática',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Text('Período: 2019 - 2021'),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  const Text(
+                                      'Ensino médio integrado ao técninco em informática no Instituo Federal Catarinense de Araquari. Tive aprendizado em diversos campos da área de informática, como, desenvolvimento web utilizando Django, python, javascript, html e css, programação orientada a objeto, banco de dados, edição de vídeos e imagens.'),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                children: [
+                                  Image.asset('assets/imagens/grad.png'),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Text(
+                                    'Graduação em Bacharelado em Sistemas de informação',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const Text('Período: 2022 - Atualmente'),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  const Text(
+                                      'Graduanda de Bacharelado em Sistemas de informação no Instituto Federal Catarinense de Araquari, com o prazo de finalização em 2026. Estou tendo um aprofundamento nas matérias que já tive no ensino médio, porém, também estou tendo um aprendizado de matérias que irão me ajudar no mercado de trabalho como os métodos ágeis.')
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                    Breakpoints.xs: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Column(
                           children: [
                             Image.asset('assets/imagens/info.png'),
                             const SizedBox(
@@ -48,44 +105,36 @@ class Formacao extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ],
-                        ),
-                        const Text('Período: 2019 - 2021'),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                            'Ensino médio integrado ao técninco em informática no Instituo Federal Catarinense de Araquari. Tive aprendizado em diversos campos da área de informática, como, desenvolvimento web utilizando Django, python, javascript, html e css, programação orientada a objeto, banco de dados, edição de vídeos e imagens.'),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
+                            const Text('Período: 2019 - 2021'),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const Text(
+                                'Ensino médio integrado ao técninco em informática no Instituo Federal Catarinense de Araquari. Tive aprendizado em diversos campos da área de informática, como, desenvolvimento web utilizando Django, python, javascript, html e css, programação orientada a objeto, banco de dados, edição de vídeos e imagens.'),
+                            const SizedBox(
+                              height: 60,
+                            ),
                             Image.asset('assets/imagens/grad.png'),
                             const SizedBox(
                               width: 10,
                             ),
                             const Text(
-                                'Graduação em Bacharelado em Sistemas de informação', style: TextStyle(fontWeight: FontWeight.bold),),
+                              'Graduação em Bacharelado em Sistemas de informação',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            const Text('Período: 2022 - Atualmente'),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const Text(
+                                'Graduanda de Bacharelado em Sistemas de informação no Instituto Federal Catarinense de Araquari, com o prazo de finalização em 2026. Estou tendo um aprofundamento nas matérias que já tive no ensino médio, porém, também estou tendo um aprendizado de matérias que irão me ajudar no mercado de trabalho como os métodos ágeis.')
                           ],
-                        ),
-                        const Text('Período: 2022 - Atualmente'),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                            'Graduanda de Bacharelado em Sistemas de informação no Instituto Federal Catarinense de Araquari, com o prazo de finalização em 2026. Estou tendo um aprofundamento nas matérias que já tive no ensino médio, porém, também estou tendo um aprendizado de matérias que irão me ajudar no mercado de trabalho como os métodos ágeis.')
-                      ],
-                    ),
-                  ),
-                ],
+                        );
+                      },
+                    ), 
+                    
+                  },
+                ),
               ),
             ),
           ],
