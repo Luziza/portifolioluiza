@@ -257,7 +257,7 @@ class _MyAppState extends State<MyApp> {
                                             ],
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 20,
                                         ),
                                       ],
@@ -288,17 +288,17 @@ class _MyAppState extends State<MyApp> {
                                               case 'Experiências':
                                                 _scrollTo(_experienciasKey);
                                                 break;
-                                              case 'clearFilters':
-                                                print('Clear filters');
+                                              case 'Projetos':
+                                                _scrollTo(_projetosKey);
                                                 break;
-                                              case 'clearFilters':
-                                                print('Clear filters');
+                                              case 'Formacao':
+                                                _scrollTo(_formacaoKey);
                                                 break;
-                                              case 'clearFilters':
-                                                print('Clear filters');
+                                              case 'Certificados':
+                                                _scrollTo(_certificadosKey);
                                                 break;
-                                              case 'clearFilters':
-                                                print('Clear filters');
+                                              case 'Contato':
+                                                _scrollTo(_contatosKey);
                                                 break;
                                               default:
                                             }
@@ -322,153 +322,98 @@ class _MyAppState extends State<MyApp> {
                                             ),
                                             const PopupMenuItem<String>(
                                               value: 'Conhecimento',
-                                              child: Text('Conhecimento'),
+                                              child: Text(
+                                                'Conhecimento',
+                                                style: TextStyle(
+                                                  color: Colors
+                                                      .white, // Cor do texto
+                                                  fontSize:
+                                                      18, // Tamanho da fonte
+                                                  fontWeight: FontWeight
+                                                      .bold, // Negrito
+                                                  fontFamily: 'BigShoulders',
+                                                ),
+                                              ),
                                             ),
                                             const PopupMenuItem<String>(
                                               value: 'Experiências',
-                                              child: Text('Experiências'),
+                                              child: Text(
+                                                'Experiências',
+                                                style: TextStyle(
+                                                  color: Colors
+                                                      .white, // Cor do texto
+                                                  fontSize:
+                                                      18, // Tamanho da fonte
+                                                  fontWeight: FontWeight
+                                                      .bold, // Negrito
+                                                  fontFamily: 'BigShoulders',
+                                                ),
+                                              ),
                                             ),
                                             const PopupMenuItem<String>(
-                                              value: 'Experiências',
-                                              child: Text('Experiências'),
+                                              value: 'Projetos',
+                                              child: Text(
+                                                'Projetos',
+                                                style: TextStyle(
+                                                  color: Colors
+                                                      .white, // Cor do texto
+                                                  fontSize:
+                                                      18, // Tamanho da fonte
+                                                  fontWeight: FontWeight
+                                                      .bold, // Negrito
+                                                  fontFamily: 'BigShoulders',
+                                                ),
+                                              ),
                                             ),
                                             const PopupMenuItem<String>(
-                                              value: 'Experiências',
-                                              child: Text('Experiências'),
+                                              value: 'Formacao',
+                                              child: Text(
+                                                'Formação',
+                                                style: TextStyle(
+                                                  color: Colors
+                                                      .white, // Cor do texto
+                                                  fontSize:
+                                                      18, // Tamanho da fonte
+                                                  fontWeight: FontWeight
+                                                      .bold, // Negrito
+                                                  fontFamily: 'BigShoulders',
+                                                ),
+                                              ),
                                             ),
                                             const PopupMenuItem<String>(
-                                              value: 'Experiências',
-                                              child: Text('Experiências'),
+                                              value: 'Certificados',
+                                              child: Text(
+                                                'Certificados',
+                                                style: TextStyle(
+                                                  color: Colors
+                                                      .white, // Cor do texto
+                                                  fontSize:
+                                                      18, // Tamanho da fonte
+                                                  fontWeight: FontWeight
+                                                      .bold, // Negrito
+                                                  fontFamily: 'BigShoulders',
+                                                ),
+                                              ),
+                                            ),
+                                            const PopupMenuItem<String>(
+                                              value: 'Contato',
+                                              child: Text(
+                                                'Contato',
+                                                style: TextStyle(
+                                                  color: Colors
+                                                      .white, // Cor do texto
+                                                  fontSize:
+                                                      18, // Tamanho da fonte
+                                                  fontWeight: FontWeight
+                                                      .bold, // Negrito
+                                                  fontFamily: 'BigShoulders',
+                                                ),
+                                              ),
                                             ),
                                           ],
                                         ),
                                       ],
                                     );
-                                    // Row(
-                                    //   mainAxisAlignment:
-                                    //       MainAxisAlignment.spaceAround,
-                                    //   children: [
-                                    //     TextButton(
-                                    //       onPressed: () =>
-                                    //           _scrollTo(_homeKey),
-                                    //       child: const Text(
-                                    //         'Home',
-                                    //         style: TextStyle(
-                                    //           color: Colors
-                                    //               .white, // Cor do texto
-                                    //           fontSize:
-                                    //               18, // Tamanho da fonte
-                                    //           fontWeight: FontWeight
-                                    //               .bold, // Negrito
-                                    //           fontFamily:
-                                    //               'BigShoulders', // Fonte personalizada
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    //     TextButton(
-                                    //       onPressed: () => _scrollTo(
-                                    //           _conhecimentosKey),
-                                    //       child: const Text(
-                                    //         'Conhecimentos',
-                                    //         style: TextStyle(
-                                    //           color: Colors
-                                    //               .white, // Cor do texto
-                                    //           fontSize:
-                                    //               18, // Tamanho da fonte
-                                    //           fontWeight: FontWeight
-                                    //               .bold, // Negrito
-                                    //           fontFamily:
-                                    //               'BigShoulders', // Fonte personalizada
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    //     TextButton(
-                                    //       onPressed: () => _scrollTo(
-                                    //           _experienciasKey),
-                                    //       child: const Text(
-                                    //         'Experiências',
-                                    //         style: TextStyle(
-                                    //           color: Colors
-                                    //               .white, // Cor do texto
-                                    //           fontSize:
-                                    //               18, // Tamanho da fonte
-                                    //           fontWeight: FontWeight
-                                    //               .bold, // Negrito
-                                    //           fontFamily:
-                                    //               'BigShoulders', // Fonte personalizada
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    //     TextButton(
-                                    //       onPressed: () =>
-                                    //           _scrollTo(_projetosKey),
-                                    //       child: const Text(
-                                    //         'Projetos',
-                                    //         style: TextStyle(
-                                    //           color: Colors
-                                    //               .white, // Cor do texto
-                                    //           fontSize:
-                                    //               18, // Tamanho da fonte
-                                    //           fontWeight: FontWeight
-                                    //               .bold, // Negrito
-                                    //           fontFamily:
-                                    //               'BigShoulders', // Fonte personalizada
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    //     TextButton(
-                                    //       onPressed: () =>
-                                    //           _scrollTo(_formacaoKey),
-                                    //       child: const Text(
-                                    //         'Formação',
-                                    //         style: TextStyle(
-                                    //           color: Colors
-                                    //               .white, // Cor do texto
-                                    //           fontSize:
-                                    //               18, // Tamanho da fonte
-                                    //           fontWeight: FontWeight
-                                    //               .bold, // Negrito
-                                    //           fontFamily:
-                                    //               'BigShoulders', // Fonte personalizada
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    //     TextButton(
-                                    //       onPressed: () => _scrollTo(
-                                    //           _certificadosKey),
-                                    //       child: const Text(
-                                    //         'Formação',
-                                    //         style: TextStyle(
-                                    //           color: Colors
-                                    //               .white, // Cor do texto
-                                    //           fontSize:
-                                    //               18, // Tamanho da fonte
-                                    //           fontWeight: FontWeight
-                                    //               .bold, // Negrito
-                                    //           fontFamily:
-                                    //               'BigShoulders', // Fonte personalizada
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    //     TextButton(
-                                    //       onPressed: () =>
-                                    //           _scrollTo(_contatosKey),
-                                    //       child: const Text(
-                                    //         'Contatos',
-                                    //         style: TextStyle(
-                                    //           color: Colors
-                                    //               .white, // Cor do texto
-                                    //           fontSize:
-                                    //               18, // Tamanho da fonte
-                                    //           fontWeight: FontWeight
-                                    //               .bold, // Negrito
-                                    //           fontFamily:
-                                    //               'BigShoulders', // Fonte personalizada
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    //   ],
-                                    // );
                                   },
                                 ),
                               },
