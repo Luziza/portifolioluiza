@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/widgets/link.dart';
+import 'package:responsive_styles/breakpoints/breakpoints.dart';
+import 'package:responsive_styles/responsive/responsive.dart';
 
 class Contato extends StatelessWidget {
   const Contato({super.key});
@@ -14,7 +16,7 @@ class Contato extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(90.0),
+        padding: const EdgeInsets.all(80.0),
         child: Column(
           children: [
             const Text(
@@ -28,76 +30,140 @@ class Contato extends StatelessWidget {
               height: 50,
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 90, left: 90),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        Row(
+              padding: const EdgeInsets.only(right: 50, left: 50),
+              child: Container(
+                child: context.responsive.value(
+                  {
+                    Breakpoints.lg: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Row(
                           children: [
-                            Image.asset('assets/imagens/email.png'),
-                            const SizedBox(
-                              width: 10,
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Image.asset('assets/imagens/email.png'),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      const Text(
+                                        'ribeiroluiza.jlle@gmail.com',
+                                        style: TextStyle(
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Image.asset('assets/imagens/github.png'),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      const Link(
+                                        link: "https://github.com/Luziza",
+                                        nome: "GitHub",
+                                        cor: Colors.white,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                          'assets/imagens/linkedin.png'),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      const Link(
+                                        link:
+                                            "https://www.linkedin.com/in/luiza-ribeiro-9ab428236/",
+                                        nome: "Linkedin",
+                                        cor: Colors.white,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
-                            const Text(
-                              'ribeiroluiza.jlle@gmail.com',
-                              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                        400), // Arredonda a imagem
+                                    child: Image.asset(
+                                      'assets/imagens/luizaaa.jpg',
+                                      height: 300,
+                                      fit: BoxFit
+                                          .cover, // Ajusta a imagem ao espaço disponível
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
-                        ),
-                        Row(
-                          children: [
-                            Image.asset('assets/imagens/github.png'),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Link(
-                              link: "https://github.com/Luziza",
-                              nome: "GitHub",
-                              cor: Colors.white,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Image.asset('assets/imagens/linkedin.png'),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Link(
-                              link:
-                                  "https://www.linkedin.com/in/luiza-ribeiro-9ab428236/",
-                              nome: "Linkedin",
-                              cor: Colors.white,
-                            ),
-                          ],
-                        )
-                      ],
+                        );
+                      },
                     ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius:
-                              BorderRadius.circular(400), // Arredonda a imagem
-                          child: Image.asset(
-                            'assets/imagens/luizaaa.jpg',
-                            height: 300,
-                            fit: BoxFit
-                                .cover, // Ajusta a imagem ao espaço disponível
+                    Breakpoints.xs: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Expanded(
+                          flex: 1,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset('assets/imagens/email.png'),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Text(
+                                    'ribeiroluiza.jlle@gmail.com',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/imagens/github.png'),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Link(
+                                    link: "https://github.com/Luziza",
+                                    nome: "GitHub",
+                                    cor: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/imagens/linkedin.png'),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Link(
+                                    link:
+                                        "https://www.linkedin.com/in/luiza-ribeiro-9ab428236/",
+                                    nome: "Linkedin",
+                                    cor: Colors.white,
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
-                        ),
-                      ],
+                        );
+                      },
                     ),
-                  ),
-                ],
+                  },
+                ),
               ),
             ),
           ],

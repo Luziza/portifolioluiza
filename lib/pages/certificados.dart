@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:responsive_styles/breakpoints/breakpoints.dart';
+import 'package:responsive_styles/responsive/responsive.dart';
 
 class Certificados extends StatefulWidget {
   const Certificados({super.key});
@@ -32,39 +34,73 @@ class _CertificadosState extends State<Certificados> {
           const Text(
             'CERTIFICADOS',
             style: TextStyle(
-              color:  Color.fromARGB(255, 42, 151, 51),
+              color: Color.fromARGB(255, 42, 151, 51),
               fontWeight: FontWeight.bold,
               fontSize: 40,
             ),
           ),
           const SizedBox(height: 40),
-          CarouselSlider(
-            carouselController: _carouselController,
-            options: CarouselOptions(
-              height: 400,
-              autoPlay: true,
-              enlargeCenterPage: true,
-              aspectRatio: 16/9,
-              viewportFraction: 0.8,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _currentIndex = index;
-                });
-              },
-            ),
-            items: images.map((image) {
-              return Container(
-                margin: const EdgeInsets.all(10),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    image,
-                    fit: BoxFit.cover,
-                  ),
+          Container(
+              child: context.responsive.value({
+            Breakpoints.lg: LayoutBuilder(builder: (context, constraints) {
+              return CarouselSlider(
+                carouselController: _carouselController,
+                options: CarouselOptions(
+                  height: 400,
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  },
                 ),
+                items: images.map((image) {
+                  return Container(
+                    margin: const EdgeInsets.all(10),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        image,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  );
+                }).toList(),
               );
-            }).toList(),
-          ),
+            }),
+            Breakpoints.xs: LayoutBuilder(builder: (context, constraints) {
+              return CarouselSlider(
+                carouselController: _carouselController,
+                options: CarouselOptions(
+                  height: 200,
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  },
+                ),
+                items: images.map((image) {
+                  return Container(
+                    margin: const EdgeInsets.all(10),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        image,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  );
+                }).toList(),
+              );
+            })
+          })),
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -77,9 +113,9 @@ class _CertificadosState extends State<Certificados> {
                   margin: const EdgeInsets.symmetric(horizontal: 4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: _currentIndex == entry.key 
-                      ? Colors.green 
-                      : Colors.grey.withOpacity(0.4),
+                    color: _currentIndex == entry.key
+                        ? Colors.green
+                        : Colors.grey.withOpacity(0.4),
                   ),
                 ),
               );
