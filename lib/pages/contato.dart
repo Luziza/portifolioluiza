@@ -113,52 +113,49 @@ class Contato extends StatelessWidget {
                     ),
                     Breakpoints.xs: LayoutBuilder(
                       builder: (context, constraints) {
-                        return Expanded(
-                          flex: 1,
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset('assets/imagens/email.png'),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  const Text(
-                                    'ribeiroluiza.jlle@gmail.com',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Image.asset('assets/imagens/github.png'),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  const Link(
-                                    link: "https://github.com/Luziza",
-                                    nome: "GitHub",
-                                    cor: Colors.white,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Image.asset('assets/imagens/linkedin.png'),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  const Link(
-                                    link:
-                                        "https://www.linkedin.com/in/luiza-ribeiro-9ab428236/",
-                                    nome: "Linkedin",
-                                    cor: Colors.white,
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
+                        return Column(
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset('assets/imagens/email.png'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Text(
+                                  'ribeiroluiza.jlle@gmail.com',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Image.asset('assets/imagens/github.png'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Link(
+                                  link: "https://github.com/Luziza",
+                                  nome: "GitHub",
+                                  cor: Colors.white,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Image.asset('assets/imagens/linkedin.png'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Link(
+                                  link:
+                                      "https://www.linkedin.com/in/luiza-ribeiro-9ab428236/",
+                                  nome: "Linkedin",
+                                  cor: Colors.white,
+                                ),
+                              ],
+                            )
+                          ],
                         );
                       },
                     ),
