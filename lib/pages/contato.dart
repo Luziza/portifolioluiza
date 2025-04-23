@@ -83,6 +83,24 @@ class Contato extends StatelessWidget {
                                         cor: Colors.white,
                                       ),
                                     ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                        'assets/imagens/link.png',
+                                        height: 50,
+                                        width: 50,
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      const Link(
+                                        link:
+                                            "https://drive.google.com/file/d/1IOkXk1NI7hQjQEdQnhSWs7SE84X-IFGL/view?usp=sharing",
+                                        nome: "Currículo.",
+                                        cor: Colors.white,
+                                      ),
+                                    ],
                                   )
                                 ],
                               ),
@@ -123,8 +141,7 @@ class Contato extends StatelessWidget {
                                 ),
                                 const Text(
                                   'ribeiroluiza.jlle@gmail.com',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold),
+                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
@@ -151,6 +168,24 @@ class Contato extends StatelessWidget {
                                   link:
                                       "https://www.linkedin.com/in/luiza-ribeiro-9ab428236/",
                                   nome: "Linkedin",
+                                  cor: Colors.white,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/imagens/link.png',
+                                  height: 50,
+                                  width: 50,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Link(
+                                  link:
+                                      "https://drive.google.com/file/d/1IOkXk1NI7hQjQEdQnhSWs7SE84X-IFGL/view?usp=sharing",
+                                  nome: "Currículo.",
                                   cor: Colors.white,
                                 ),
                               ],
